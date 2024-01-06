@@ -1,7 +1,7 @@
-import { AbstractSpotifyRequest } from "@/models/spotify/requests/AbstractRequest";
-import { CookieUtils } from "@/utils/Cookie";
+import { AbstractSpotifyRequest } from '@/models/spotify/requests/AbstractRequest'
+import { CookieUtils } from '@/utils/Cookie'
 
-export abstract class AbstractSpotifyApiRequest<T> extends AbstractSpotifyRequest {
+export abstract class AbstractSpotifyApiRequest extends AbstractSpotifyRequest {
   private apiUrl: string = import.meta.env.VITE_SPOTIFY_API_URL
 
   private tokenType: string = 'Bearer'
