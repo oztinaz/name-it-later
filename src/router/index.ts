@@ -40,7 +40,7 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
   const accessToken: string | undefined = CookieUtils.get('X-SPOTIFY-ACCESS-TOKEN')
   const refreshToken: string | undefined = CookieUtils.get('X-SPOTIFY-REFRESH-TOKEN')
 
@@ -56,11 +56,7 @@ router.beforeEach(async (to, from) => {
     }
   }
 
-  if (
-    accessToken === undefined &&
-    refreshToken !== undefined &&
-    to.path.startsWith('/spotify')
-  ) {
+  if (accessToken === undefined && refreshToken !== undefined && to.path.startsWith('/spotify')) {
     const spotifyTokenStore = useSpotifyTokenStore()
     const { fetchRefreshToken } = spotifyTokenStore
     const spotifyRefreshToken: SpotifyRefreshToken = await fetchRefreshToken(refreshToken)

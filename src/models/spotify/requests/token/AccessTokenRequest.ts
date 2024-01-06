@@ -2,7 +2,6 @@ import { AbstractSpotifyTokenRequest } from '@/models/spotify/requests/token/Abs
 import type { SpotifyAccessToken } from '@/types/spotify/Token'
 
 export class SpotifyAccessTokenRequest extends AbstractSpotifyTokenRequest<SpotifyAccessToken> {
-
   private grantType: string = 'authorization_code'
 
   private redirectUri: string = import.meta.env.VITE_SPOTIFY_REDIRECT_URI

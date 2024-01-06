@@ -1,5 +1,5 @@
-import { describe, expect, test } from "vitest";
-import { AbstractSpotifyRequest } from "@/models/spotify/requests/AbstractRequest";
+import { describe, expect, test } from 'vitest'
+import { AbstractSpotifyRequest } from '@/models/spotify/requests/AbstractRequest'
 
 describe('models/spotify/requests/AbstractRequest', () => {
   const mockUrl: string = 'some url'

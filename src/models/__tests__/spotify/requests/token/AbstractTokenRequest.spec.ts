@@ -1,8 +1,8 @@
-import { describe, expect, test, vi } from "vitest";
-import { AbstractSpotifyTokenRequest } from "@/models/spotify/requests/token/AbstractTokenRequest";
-import { AxiosUtils } from "@/utils/Axios";
+import { describe, expect, test, vi } from 'vitest'
+import { AbstractSpotifyTokenRequest } from '@/models/spotify/requests/token/AbstractTokenRequest'
+import { AxiosUtils } from '@/utils/Axios'
 import { Buffer } from 'buffer'
-import type { SpotifyToken } from "@/types/spotify/Token";
+import type { SpotifyToken } from '@/types/spotify/Token'
 
 describe('models/spotify/requests/token/AbstractTokenRequest', () => {
   const mockStr: string = 'mock string'
@@ -19,7 +19,7 @@ describe('models/spotify/requests/token/AbstractTokenRequest', () => {
     public getRequestBody(payload: string): object {
       return mockRequestBody
     }
-  
+
     public getGrantType(): string {
       return mockStr
     }
@@ -52,7 +52,6 @@ describe('models/spotify/requests/token/AbstractTokenRequest', () => {
     expect(mockObj.getUrl()).toBe(`${mockStr}/api/token`)
   })
 
-
   test('getClientId gets client id', () => {
     expect(mockObj.getClientId()).toBe(mockStr)
   })
@@ -60,7 +59,6 @@ describe('models/spotify/requests/token/AbstractTokenRequest', () => {
   test('getClientSecret gets client secret', () => {
     expect(mockObj.getClientSecret()).toBe(mockStr)
   })
-
 
   test('getGrantType gets grant type', () => {
     expect(mockObj.getGrantType()).toBe(mockStr)
@@ -76,9 +74,13 @@ describe('models/spotify/requests/token/AbstractTokenRequest', () => {
     const result: any = mockObj.createBase64Component()
 
     expect(spyBufferFrom).toHaveBeenCalledOnce()
-    expect(spyBufferFrom).toHaveBeenCalledWith(`${mockObj.getClientId()}:${mockObj.getClientSecret()}`)
-  
-    expect(result).toBe(Buffer.from(`${mockObj.getClientId()}:${mockObj.getClientSecret()}`).toString('base64'))
+    expect(spyBufferFrom).toHaveBeenCalledWith(
+      `${mockObj.getClientId()}:${mockObj.getClientSecret()}`
+    )
+
+    expect(result).toBe(
+      Buffer.from(`${mockObj.getClientId()}:${mockObj.getClientSecret()}`).toString('base64')
+    )
   })
 
   test('getRequestBody gets request body', () => {

@@ -1,5 +1,5 @@
 import { beforeEach, describe, test, vi, expect } from 'vitest'
-import { setActivePinia, createPinia, storeToRefs } from 'pinia'
+import { setActivePinia, createPinia } from 'pinia'
 import { useSpotifyTokenStore } from '@/stores/spotify/token'
 
 import { SpotifyAccessTokenRequest } from '@/models/spotify/requests/token/AccessTokenRequest'
@@ -30,7 +30,9 @@ describe('stores/spotify/token', () => {
     const spotifyTokenStore = useSpotifyTokenStore()
     const { fetchAccessToken } = spotifyTokenStore
 
-    const spyFetchToken = vi.spyOn(SpotifyAccessTokenRequest.prototype, 'fetchToken').mockResolvedValueOnce(mockSpotifyAccessToken)
+    const spyFetchToken = vi
+      .spyOn(SpotifyAccessTokenRequest.prototype, 'fetchToken')
+      .mockResolvedValueOnce(mockSpotifyAccessToken)
 
     const response = await fetchAccessToken(mockStr)
 
@@ -42,7 +44,9 @@ describe('stores/spotify/token', () => {
     const spotifyTokenStore = useSpotifyTokenStore()
     const { fetchRefreshToken } = spotifyTokenStore
 
-    const spyFetchToken = vi.spyOn(SpotifyRefreshTokenRequest.prototype, 'fetchToken').mockResolvedValueOnce(mockSpotifyRefreshToken)
+    const spyFetchToken = vi
+      .spyOn(SpotifyRefreshTokenRequest.prototype, 'fetchToken')
+      .mockResolvedValueOnce(mockSpotifyRefreshToken)
 
     const response = await fetchRefreshToken(mockStr)
 
