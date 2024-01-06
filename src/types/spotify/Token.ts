@@ -8,3 +8,5 @@ export type SpotifyToken = {
 export type SpotifyAccessToken = SpotifyToken & {
   refresh_token: string
 }
+
+export type SpotifyRefreshToken = SpotifyToken
