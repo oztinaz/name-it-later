@@ -8,10 +8,12 @@ import AskAuthorizationView from '@/views/spotify/AskAuthorizationView.vue'
 describe('views/spotify/AskAuthorizationView', () => {
   const wrapper = shallowMount(AskAuthorizationView, {
     global: {
-      plugins: [createTestingPinia({
-        createSpy: vi.fn,
-      })],
-    },
+      plugins: [
+        createTestingPinia({
+          createSpy: vi.fn
+        })
+      ]
+    }
   })
 
   test('displays anchor message', () => {
@@ -21,6 +23,6 @@ describe('views/spotify/AskAuthorizationView', () => {
   test('checks anchor href', () => {
     const store = useSpotifyAuthorizationStore()
     const element = wrapper.find('[data-test="authorize-anchor"]')
-    expect(element.attributes("href")).toBe(store.authorizationUrl)
+    expect(element.attributes('href')).toBe(store.authorizationUrl)
   })
 })

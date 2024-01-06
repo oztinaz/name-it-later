@@ -19,7 +19,7 @@ const router = createRouter({
     },
     {
       path: '/spotify',
-      name: 'spotify',  
+      name: 'spotify',
       component: SpotifyMainView,
       children: [
         {
