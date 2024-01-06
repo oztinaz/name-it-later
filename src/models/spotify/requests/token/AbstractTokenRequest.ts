@@ -3,8 +3,9 @@ import { AxiosUtils } from '@/utils/Axios'
 import { Buffer } from 'buffer'
 import type { SpotifyToken } from '@/types/spotify/Token'
 
-export abstract class AbstractSpotifyTokenRequest<T extends SpotifyToken> extends AbstractSpotifyRequest {
-
+export abstract class AbstractSpotifyTokenRequest<
+  T extends SpotifyToken
+> extends AbstractSpotifyRequest {
   private clientId: string = import.meta.env.VITE_SPOTIFY_CLIENT_ID
 
   private clientSecret: string = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
@@ -25,8 +26,7 @@ export abstract class AbstractSpotifyTokenRequest<T extends SpotifyToken> extend
   public getRequestHeaders(): object {
     return {
       'content-type': this.getContentType(),
-      Authorization:
-        `Basic ${this.createBase64Component()}`
+      Authorization: `Basic ${this.createBase64Component()}`
     }
   }
 

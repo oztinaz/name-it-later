@@ -1,5 +1,5 @@
-import { describe, expect, test, vi } from "vitest";
-import { SpotifyRefreshTokenRequest } from "@/models/spotify/requests/token/RefreshTokenRequest";
+import { describe, expect, test, vi } from 'vitest'
+import { SpotifyRefreshTokenRequest } from '@/models/spotify/requests/token/RefreshTokenRequest'
 
 describe('models/spotify/requests/token/AbstractTokenRequest', () => {
   const mockStr: string = 'mock string'
