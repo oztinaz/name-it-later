@@ -2,9 +2,9 @@ import { AbstractSpotifyRequest } from "@/models/spotify/requests/AbstractReques
 import { CookieUtils } from "@/utils/Cookie";
 
 export abstract class AbstractSpotifyApiRequest<T> extends AbstractSpotifyRequest {
-  private tokenType: string = 'Bearer'
+  private apiUrl: string = import.meta.env.VITE_SPOTIFY_API_URL
 
-  private url: string = import.meta.env.VITE_SPOTIFY_API_URL
+  private tokenType: string = 'Bearer'
 
   public getRequestHeaders(): object {
     return {
@@ -12,12 +12,17 @@ export abstract class AbstractSpotifyApiRequest<T> extends AbstractSpotifyReques
     }
   }
 
+  public getApiUrl(): string {
+    return this.apiUrl
+  }
+
   public getTokenType(): string {
     return this.tokenType
   }
 
-
   public getUrl(): string {
-    return this.url
+    return `${this.getApiUrl()}${this.getUrlPath()}`
   }
+
+  abstract getUrlPath(): string
 }
