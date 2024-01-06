@@ -11,32 +11,32 @@ describe('stores/spotify/profile', () => {
   })
 
   const mockSpotifyProfile: SpotifyProfile = {
-    "country": "string",
-    "display_name": "string",
-    "email": "string",
-    "explicit_content": {
-      "filter_enabled": false,
-      "filter_locked": false
+    country: 'string',
+    display_name: 'string',
+    email: 'string',
+    explicit_content: {
+      filter_enabled: false,
+      filter_locked: false
     },
-    "external_urls": {
-      "spotify": "string"
+    external_urls: {
+      spotify: 'string'
     },
-    "followers": {
-      "href": "string",
-      "total": 0
+    followers: {
+      href: 'string',
+      total: 0
     },
-    "href": "string",
-    "id": "string",
-    "images": [
+    href: 'string',
+    id: 'string',
+    images: [
       {
-        "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-        "height": 300,
-        "width": 300
+        url: 'https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228',
+        height: 300,
+        width: 300
       }
     ],
-    "product": "string",
-    "type": "string",
-    "uri": "string"
+    product: 'string',
+    type: 'string',
+    uri: 'string'
   }
 
   test('fetchCurrentUsersProfile uses GetCurrentUsersProfileRequest.get method', async () => {

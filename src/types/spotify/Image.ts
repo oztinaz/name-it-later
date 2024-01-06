@@ -1,5 +1,5 @@
 export type SpotifyImage = {
-  url: string,
-  height: number,
+  url: string
+  height: number
   width: number
 }

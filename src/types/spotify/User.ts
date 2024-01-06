@@ -1,17 +1,17 @@
-import type { SpotifyImage } from "@/types/spotify/Image"
+import type { SpotifyImage } from '@/types/spotify/Image'
 
 export type SpotifyUser = {
-  display_name: string,
+  display_name: string
   external_urls: {
     spotify: string
-  },
+  }
   followers: {
-    href: string,
+    href: string
     total: number
-  },
-  href: string,
-  id: string,
-  images: SpotifyImage[],
-  type: 'user',
+  }
+  href: string
+  id: string
+  images: SpotifyImage[]
+  type: 'user'
   uri: string
 }
