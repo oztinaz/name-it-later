@@ -1,6 +1,5 @@
-
-import { describe, expect, test, vi } from "vitest";
-import { CookieUtils } from "@/utils/Cookie";
+import { describe, expect, test, vi } from 'vitest'
+import { CookieUtils } from '@/utils/Cookie'
 
 const key1: string = 'key1'
 const key2: string = 'key2'
