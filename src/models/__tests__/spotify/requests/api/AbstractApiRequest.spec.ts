@@ -7,7 +7,11 @@ describe('models/spotify/requests/api/AbstractApiRequest', () => {
 
   import.meta.env.VITE_SPOTIFY_API_URL = mockStr
 
-  class TestApiRequest extends AbstractSpotifyApiRequest<string> {}
+  class TestApiRequest extends AbstractSpotifyApiRequest {
+    public getUrlPath(): string {
+      return mockStr
+    }
+  }
 
   const mockObj: TestApiRequest = new TestApiRequest()
 
@@ -24,11 +28,15 @@ describe('models/spotify/requests/api/AbstractApiRequest', () => {
     expect(spyGet).toHaveBeenCalledWith('X-SPOTIFY-ACCESS-TOKEN')
   })
 
+  test('getApiUrl gets api url', () => {
+    expect(mockObj.getApiUrl()).toBe(mockStr)
+  })
+
   test('getTokenType gets tokenType', () => {
     expect(mockObj.getTokenType()).toBe('Bearer')
   })
 
   test('getUrl gets url', () => {
-    expect(mockObj.getUrl()).toBe(mockStr)
+    expect(mockObj.getUrl()).toBe(`${mockStr}${mockStr}`)
   })
 })

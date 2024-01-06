@@ -1,10 +1,10 @@
-import { AbstractSpotifyRequest } from "@/models/spotify/requests/AbstractRequest";
-import { CookieUtils } from "@/utils/Cookie";
+import { AbstractSpotifyRequest } from '@/models/spotify/requests/AbstractRequest'
+import { CookieUtils } from '@/utils/Cookie'
 
-export abstract class AbstractSpotifyApiRequest<T> extends AbstractSpotifyRequest {
+export abstract class AbstractSpotifyApiRequest extends AbstractSpotifyRequest {
+  private apiUrl: string = import.meta.env.VITE_SPOTIFY_API_URL
+
   private tokenType: string = 'Bearer'
-
-  private url: string = import.meta.env.VITE_SPOTIFY_API_URL
 
   public getRequestHeaders(): object {
     return {
@@ -12,12 +12,17 @@ export abstract class AbstractSpotifyApiRequest<T> extends AbstractSpotifyReques
     }
   }
 
+  public getApiUrl(): string {
+    return this.apiUrl
+  }
+
   public getTokenType(): string {
     return this.tokenType
   }
 
-
   public getUrl(): string {
-    return this.url
+    return `${this.getApiUrl()}${this.getUrlPath()}`
   }
+
+  abstract getUrlPath(): string
 }
