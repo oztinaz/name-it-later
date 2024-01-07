@@ -7,7 +7,11 @@ describe('models/spotify/requests/api/AbstractApiGetRequest', () => {
 
   import.meta.env.VITE_SPOTIFY_API_URL = mockStr
 
-  class TestApiGetRequest extends AbstractSpotifyApiGetRequest<string> {}
+  class TestApiGetRequest extends AbstractSpotifyApiGetRequest<string> {
+    public getUrlPath(): string {
+      throw new Error('Method not implemented.')
+    }
+  }
 
   const mockObj: TestApiGetRequest = new TestApiGetRequest()
 

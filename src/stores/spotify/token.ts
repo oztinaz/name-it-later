@@ -5,15 +5,15 @@ import { SpotifyRefreshTokenRequest } from '@/models/spotify/requests/token/Refr
 import type { SpotifyAccessToken, SpotifyRefreshToken } from '@/types/spotify/Token'
 
 export const useSpotifyTokenStore = defineStore('spotify-token', () => {
-  const accessTokenRequestModel = ref(new SpotifyAccessTokenRequest())
-  const refreshTokenRequestModel = ref(new SpotifyRefreshTokenRequest())
+  const accessTokenRequest = ref(new SpotifyAccessTokenRequest())
+  const refreshTokenRequest = ref(new SpotifyRefreshTokenRequest())
 
   const fetchAccessToken = async (code: string): Promise<SpotifyAccessToken> => {
-    return await accessTokenRequestModel.value.fetchToken(code)
+    return await accessTokenRequest.value.fetchToken(code)
   }
 
   const fetchRefreshToken = async (refreshToken: string): Promise<SpotifyRefreshToken> => {
-    return await refreshTokenRequestModel.value.fetchToken(refreshToken)
+    return await refreshTokenRequest.value.fetchToken(refreshToken)
   }
 
   return {
