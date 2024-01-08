@@ -10,7 +10,7 @@ export type SpotifySearchItem<T extends SpotifyBasicAlbum | SpotifyArtist | Spot
     offset: number,
     previous: string,
     total: number,
-    items: T
+    items: T[]
   },
   artists?: {
     href: string,
