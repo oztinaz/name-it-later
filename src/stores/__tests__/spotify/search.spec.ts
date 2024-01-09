@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, test, vi } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useSpotifySearchStore } from '@/stores/spotify/search'
 import { SearchRequest } from '@/models/spotify/requests/api/SearchRequest'
-import type { SpotifySearchItem } from '@/types/spotify/SearchItem'
+import type { SpotifySearchItem } from '@/types/spotify/responses/SearchItem'
 import type { SpotifyArtist } from '@/types/spotify/Artist'
 
 describe('stores/spotify/search', () => {

@@ -11,6 +11,12 @@ import HomeView from '@/views/HomeView.vue'
 import SpotifyAskAuthorizationView from '@/views/spotify/AskAuthorizationView.vue'
 import SpotifyAuthorizationView from '@/views/spotify/AuthorizationView.vue'
 import SpotifyMainView from '@/views/spotify/MainView.vue'
+// Create Playlist
+import SpotifyCreatePlaylistView from '@/views/spotify/create-playlist/MainView.vue'
+import SpotifyCreatePlaylistSeedsView from '@/views/spotify/create-playlist/seeds/MainView.vue'
+import SpotifyCreatePlaylistSeedsArtistsView from '@/views/spotify/create-playlist/seeds/ArtistsView.vue'
+import SpotifyCreatePlaylistSeedsGenresView from '@/views/spotify/create-playlist/seeds/GenresView.vue'
+import SpotifyCreatePlaylistSeedsTracksView from '@/views/spotify/create-playlist/seeds/TracksView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +40,35 @@ const router = createRouter({
           path: 'authorization',
           name: 'spotify-authorization',
           component: SpotifyAuthorizationView
+        },
+        {
+          path: 'create-playlist',
+          name: 'spotify-create-playlist',
+          component: SpotifyCreatePlaylistView,
+          children: [
+            {
+              path: 'seeds',
+              name: 'spotify-create-playlist-seeds',
+              component: SpotifyCreatePlaylistSeedsView,
+              children: [
+                {
+                  path: 'artists',
+                  name: 'spotify-create-playlist-seeds-artists',
+                  component: SpotifyCreatePlaylistSeedsArtistsView
+                },
+                {
+                  path: 'genres',
+                  name: 'spotify-create-playlist-seeds-genres',
+                  component: SpotifyCreatePlaylistSeedsGenresView
+                },
+                {
+                  path: 'tracks',
+                  name: 'spotify-create-playlist-seeds-tracks',
+                  component: SpotifyCreatePlaylistSeedsTracksView
+                }
+              ]
+            }
+          ]
         }
       ]
     }

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { SearchRequest } from '@/models/spotify/requests/api/SearchRequest'
-import type { SpotifySearchItem } from '@/types/spotify/SearchItem'
+import type { SpotifySearchItem } from '@/types/spotify/responses/SearchItem'
 import type { SpotifyTrack } from '@/types/spotify/Track'
 import type { SpotifyBasicAlbum } from '@/types/spotify/Album'
 import type { SpotifyArtist } from '@/types/spotify/Artist'

@@ -1,5 +1,5 @@
 import { AbstractSpotifyApiGetRequest } from '@/models/spotify/requests/api/AbstractApiGetRequest'
-import type { SpotifySearchItem } from '@/types/spotify/SearchItem'
+import type { SpotifySearchItem } from '@/types/spotify/responses/SearchItem'
 import type { SpotifyBasicAlbum } from "@/types/spotify/Album"
 import type { SpotifyArtist } from "@/types/spotify/Artist"
 import type { SpotifyTrack } from "@/types/spotify/Track"
